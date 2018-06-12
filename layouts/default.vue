@@ -8,7 +8,7 @@
 html {
   font-family: "Space Text", sans-serif;
   font-size: 50px;
-  line-height: 1.4;
+  line-height: 1.7;
   font-weight: 300;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

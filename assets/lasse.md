@@ -1,10 +1,10 @@
 Hi,
 I’m <span data-target="lasse">Lasse</span>. I love building stuff. Online and offline. I’m a trained graphic designer, self-taught web-developer and I grew up on a <span data-target="farm">farm</span>.
 
-I’ve worked for clients such as <span data-target="lasse">Vrije Universiteit Amsterdam</span>, <span data-target="lasse">Willem De Kooning Academy</span>, <span data-target="lasse">Domein voor Kunstkritiek</span>, <span data-target="lasse">Het Nieuwe Instituut</span> and others.
+I’ve worked for clients such as <span data-target="connectit">Vrije Universiteit Amsterdam</span>, <span data-target="lasse">Willem De Kooning Academy</span>, <span data-target="editthispost">Domein voor Kunstkritiek</span>, <span data-target="pop">Het Nieuwe Instituut</span> and others.
 
 
-Strong communication with clients and colleagues is super important to me; it allows for a smooth process and a varied working environment.
+<!-- Strong communication with clients and colleagues is super important to me; it allows for a smooth process and a varied working environment. -->
 
 I’m good at imagining and visualizing concepts whether that might be through <span data-target="lasse">sketches, prototypes or models</span>.
 
@@ -12,6 +12,7 @@ Professionally I’ve mainly worked as a webdesigner and developer, but I’m re
 
 I believe in <span data-target="lasse">a connected web</span>. A website not only talks to a visitor but also communicates with your fridge and your smartphone. I therefore also believe in the importance and the rise of flexible Content Management Systems built around <span data-target="lasse">REST-API/GraphQl</span> or other query languages.
 
+<div class="smalltext">
 Tools I use:
 
 Web tools:
@@ -34,3 +35,5 @@ http://connect-it-climate.eu
 http://editthispost.com/
 https://sandervanwettum.com/
 http://prettyold.pictures/
+
+</div>

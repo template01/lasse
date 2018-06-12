@@ -10,7 +10,6 @@
   <div class="sideContentOuter" :style="contactDisplayed ?{ 'justify-content': 'end'} :{}">
     <div class="sideContent" :style="contactDisplayed ?{ 'justify-content': 'end'} :{}">
 
-
       <transition name="fade">
         <div v-if="slideInSidebar">
           <div v-for="(item,index) in sideContent.content" :key="String(item.id)+index">
@@ -40,6 +39,7 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 import lasseText from '../assets/lasse.md'
+import mediaData from '../assets/media.json'
 
 
 export default {
@@ -53,6 +53,26 @@ export default {
   //   },
   // },
   methods: {
+    addThumbnails: function() {
+      var vm = this
+      var targerSpans = vm.$el.querySelectorAll('span[data-target]')
+      for (var i = 0, len = targerSpans.length; i < len; i++) {
+        var value = targerSpans[i].getAttribute("data-target");
+        if(vm.media[value]){
+          var imgSrc = vm.media[value][0].image.src
+          var circle = vm.media[value][0].image.circle
+          if(imgSrc){
+            var DOM_img =  document.createElement("img");
+            if(circle){
+              DOM_img.className="circle"
+            }
+            DOM_img.src = imgSrc;
+            targerSpans[i].appendChild(DOM_img);
+          }
+        }
+
+      }
+    },
     setContact: function() {
       var vm = this
       vm.slideInSidebar = false
@@ -107,39 +127,14 @@ export default {
       "id": "contact",
       "content": this.media.contact
     }
-
+    this.addThumbnails()
   },
   data: function() {
     return {
       isHovered: false,
       contactDisplayed: true,
       slideInSidebar: true,
-      media: {
-        "lasse": [{
-          "image": {
-            "src": "https://placehold.it/400x500",
-            "desc": "la la la"
-          }
-        }, {
-          "image": {
-            "src": "https://placehold.it/400x500",
-            "desc": "la la la"
-          }
-        }],
-        "farm": [{
-          "image": {
-            "src": "https://placehold.it/400x500",
-            "desc": "farm la"
-          }
-        }],
-        "contact": [{
-          "details": {
-            "phone": "+31 6 5777 2891",
-            "mail": "hi@lasses.link",
-          }
-        }]
-
-      },
+      media: mediaData,
       sideContent: '',
       mainContent: lasseText
     }
@@ -186,10 +181,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .mainContentInner p {
   margin-bottom: 80px;
 }
+.mainContentInner .smalltext {
+  margin-bottom: 80px;
+  font-size: 30px;
+  column-count: 2;
+}
 
 .mainContentInner span[data-target] {
   color: black;
   font-weight: 800;
+  cursor: pointer;
   /* background: blue; */
   /* border-radius: 20px; */
   /* padding-left: 10px; */
@@ -198,6 +199,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   /* opacity: 0.5; */
   /* white-space: nowrap; */
 }
+
+.mainContentInner span[data-target] img{
+  height: 80px;
+  margin-left: 6px;
+  margin-bottom: -25px;
+}
+.mainContentInner span[data-target] img.circle{
+    border-radius: 100%;
+}
+
 
 .sideContentShadow {
   background: red;
@@ -228,10 +239,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   top: 0;
   color: white;
   padding: 80px;
-
-  /* padding-top: 100px; */
   height: 100%;
-
 }
 
 .sideContent {
@@ -251,5 +259,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.sideContent img{
+  width: 100%;
+  max-width: 900px;
 }
 </style>

@@ -1,0 +1,29 @@
+{
+  "lasse": [{
+    "image": {
+      "src": "lasse.jpg",
+      "circle":true
+    }
+  }],
+  "farm": [{
+    "image": {
+      "src": "farm.jpg"
+    }
+  }],
+  "connectit": [{
+    "image": {
+      "src": "connectit.png"
+    }
+  }],
+  "editthispost": [{
+    "image": {
+      "src": "editthispost.jpg"
+    }
+  }],
+  "contact": [{
+    "details": {
+      "phone": "+31 6 5777 2891",
+      "mail": "hi@lasses.link"
+    }
+  }]
+}
