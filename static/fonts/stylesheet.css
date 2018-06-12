@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Space Text';
+    src: url('hinted-SpaceText-Regular.woff2') format('woff2'),
+        url('hinted-SpaceText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Text';
+    src: url('hinted-SpaceText-Bold.woff2') format('woff2'),
+        url('hinted-SpaceText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Text';
+    src: url('hinted-SpaceText-Light.woff2') format('woff2'),
+        url('hinted-SpaceText-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Text';
+    src: url('hinted-SpaceText-Medium.woff2') format('woff2'),
+        url('hinted-SpaceText-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Text';
+    src: url('hinted-SpaceText-SemiBold.woff2') format('woff2'),
+        url('hinted-SpaceText-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
