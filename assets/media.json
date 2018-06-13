@@ -2,32 +2,39 @@
   "lasse": [{
     "image": {
       "src": "lasse.jpg",
-      "circle":true
+      "circle":true,
+      "desc": "Selfie, The Netherlands 2018"
     }
   }],
   "farm": [{
     "image": {
-      "src": "farm.jpg"
+      "src": "farm.jpg",
+      "desc": "Undisclosed location, Denmark 2017"
     }
   }],
   "connectit": [{
     "image": {
-      "src": "connectit.png"
+      "src": "connectit.png",
+      "desc":"<a href='http://connect-it-climate.eu/' target='_blank'>Connect-It</a>: Datavizualization prototype, 2015"
     }
   }],
   "sander": [{
     "image": {
-      "src": "sander.png"
+      "src": "sander.jpg",
+      "desc":"<a href='https://sandervanwettum.com/' target='_blank'>Sander van Wettum</a>: Photographer Portfolio, 2018"
     }
   }],
   "sketch": [{
     "image": {
-      "src": "sketch.jpg"
+      "src": "sketch.jpg",
+      "desc": "A wonderful web-sketch, The Netherlands 2018"
+
     }
   }],
   "connected": [{
     "image": {
-      "src": "connectedweb.jpg"
+      "src": "connectedweb.jpg",
+      "desc": "Rough connected-web sketch, The Netherlands 2018"
     }
   }],
   "query": [{
@@ -37,12 +44,14 @@
   }],
   "pop": [{
     "image": {
-      "src": "pop.jpg"
+      "src": "pop.jpg",
+      "desc":"<a href='http://prettyold.pictures/' target='_blank'>Pretty Old Pictures</a>: Product and Website design, 2016"
     }
   }],
   "editthispost": [{
     "image": {
-      "src": "editthispost.jpg"
+      "src": "editthispost.jpg",
+      "desc":"<a href='http://editthispost.com/' target='_blank'>Edit this Post</a>: collaborative writing platform, 2017"
     }
   }],
   "contact": [{

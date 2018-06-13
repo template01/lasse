@@ -13,27 +13,38 @@ Professionally I’ve mainly worked as a webdesigner and developer, but I’m re
 I believe in <span data-target="connected">a connected web</span>. A website not only talks to a visitor but also communicates with your fridge and your smartphone. I therefore also believe in the importance and the rise of flexible Content Management Systems built around <span data-target="query">REST-API/GraphQl</span> or other query languages.
 
 <div class="smalltext">
-Tools I use:
+Tools I know how to use:
 
 Web tools:
-Frontend: Vue.js, HTML/CSS/SCSS/SASS, good old jQuery and a bit of React.js
-Backend: Some Node.js, Some PHP, and utilizing a lot of different Headless CMS’s
+* Frontend: Vue.js, HTML/CSS/SCSS/SASS, good old jQuery and a bit of React.js
+* Backend: Some Node.js, Some PHP, + a lot of different Headless CMS’s/Frameworks
+* Services: Github, Netlify, Firebase, Slack and others.
 
-Microcontrolers/IoT/Server/Serverless
+Electronics and management:
+* Linux server management
+* Arduino + light weight electronics
+* Raspberry Pi and Similar devices
 
-Linux server management
-Arduino / light weight electronics
-Raspberry Pi/ Similar devices
+Analog Tools (you name it):
+* Welding machines
+* Sewing machines
+* Laser-cutters
+* Chainsaws
+* Table routers
+* Hammers and nails. <span data-target="lasse">(I’m a pratical guy!)</span>
 
-Analog Tools:
-you name it: Welding machines, Sewing machines, Lasercutters, Chainsaws, Table routers, Hammers and nails, and so on.  <span data-target="lasse">I’m a pratical guy!</span>
+CV:
 
+Name / Born / Nationality / Languages:
+* Lasse van den Bosch Christensen / 1988 / Danish / Danish, Dutch, English, basic German.
 
-Examples:
+Education:
+* 2013 - 2015: MA Communications and Design, Piet Zwart Institute, Rotterdam NL
+* 2010 - 2013: BA Communications, Designskolen Kolding, Kolding DK
 
-http://connect-it-climate.eu
-http://editthispost.com/
-https://sandervanwettum.com/
-http://prettyold.pictures/
+Work experience:
+* 2015 - : Partner and Technical Lead at Template Studio in Rotterdam.
 
 </div>
+
+Opportunities? Freelance? Work? Sure. Write me at hi@lasses.link

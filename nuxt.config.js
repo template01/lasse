@@ -32,10 +32,7 @@ module.exports = {
 
   mode: 'spa',
 
-  // loading: {
-  //   color: '#3B8070'
-  // },
-
+  loading: false,
   loadingIndicator: '~/static/initloaderspa.html',
   /*
    ** Build configuration

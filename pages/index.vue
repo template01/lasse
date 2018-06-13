@@ -15,7 +15,7 @@
           <div v-for="(item,index) in sideContent.content" :key="String(item.id)+index">
             <div v-if="item.image">
               <img :src="item.image.src" />
-              <p v-show="item.image.desc" v-html="item.image.desc"></p>
+              <p class="desc" v-show="item.image.desc" v-html="item.image.desc"></p>
             </div>
             <div v-if="item.details">
               <img style="margin:0 auto; display:block; max-width:300px" width="80%" :src="'/sun.svg'" />
@@ -122,6 +122,12 @@ export default {
     }
   },
   mounted() {
+
+  // this.$nextTick(() => {
+  //   this.$nuxt.$loading.start()
+  //
+  //   setTimeout(() => this.$nuxt.$loading.finish(), 20000)
+  // })
     this.detectHover()
     this.sideContent = {
       "id": "contact",
@@ -183,21 +189,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 .mainContentInner .smalltext {
   margin-bottom: 80px;
-  font-size: 30px;
+  font-size: 20px;
   column-count: 2;
+  column-gap: 40px;
+}
+
+.smalltext p{
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+}
+
+.mainContentInner .smalltext span[data-target]{
+  font-weight: 600
+}
+
+.mainContentInner .smalltext span[data-target] img{
+  height: 40px;
+  margin-left: 6px;
+  margin-bottom: -15px;
 }
 
 .mainContentInner span[data-target] {
   color: black;
   font-weight: 800;
   cursor: pointer;
-  /* background: blue; */
-  /* border-radius: 20px; */
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
-  /* padding-bottom: 2px; */
-  /* opacity: 0.5; */
-  /* white-space: nowrap; */
 }
 
 .mainContentInner span[data-target] img{
@@ -251,6 +267,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   height: 100%;
 
   padding: 40px;
+  padding-top: 80px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -259,6 +276,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.sideContent .desc{
+  color: inherit;
+  font-size: 20px;
+}
+
+
+.sideContent a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid white;
 }
 .sideContent img{
   width: 100%;
