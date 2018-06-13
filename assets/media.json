@@ -15,6 +15,31 @@
       "src": "connectit.png"
     }
   }],
+  "sander": [{
+    "image": {
+      "src": "sander.png"
+    }
+  }],
+  "sketch": [{
+    "image": {
+      "src": "sketch.jpg"
+    }
+  }],
+  "connected": [{
+    "image": {
+      "src": "connectedweb.jpg"
+    }
+  }],
+  "query": [{
+    "image": {
+      "src": "query.png"
+    }
+  }],
+  "pop": [{
+    "image": {
+      "src": "pop.jpg"
+    }
+  }],
   "editthispost": [{
     "image": {
       "src": "editthispost.jpg"

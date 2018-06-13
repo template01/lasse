@@ -250,7 +250,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   width: 100%;
   height: 100%;
 
-  padding: 80px;
+  padding: 40px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
