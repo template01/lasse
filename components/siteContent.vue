@@ -97,6 +97,23 @@ export default {
   //   },
   // },
   methods: {
+
+    debounceResize: function() {
+      function debounce(func, wait = 100) {
+        let timeout;
+        return function(...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            func.apply(this, args);
+          }, wait);
+        };
+      }
+
+      // Start
+      var vm = this
+      const debounced = debounce(vm.checkFormat, 500);
+      window.addEventListener('resize', debounced);
+    },
     addThumbnails: function() {
       var vm = this
       var targerSpans = vm.$el.querySelectorAll('span[data-target]')
@@ -147,6 +164,23 @@ export default {
 
       });
     },
+    checkFormat: function(){
+
+      if (window.innerWidth > 1024) {
+        this.mobile = false
+      } else {
+        this.mobile = true
+      }
+      if (!this.mobile) {
+        this.detectHover()
+        this.sideContent = {
+          "id": "contact",
+          "content": this.media.contact
+        }
+      } else {
+        this.detectClick()
+      }
+    },
     detectHover: function() {
       var vm = this
       document.addEventListener('mouseover', function(event) {
@@ -184,22 +218,11 @@ export default {
   mounted() {
 
     //determain mobile
-    if(window.innerWidth>1024){
-      this.mobile=false
-    }else{
-      this.mobile=true
-    }
 
     if (!this.loading) {
-      if (!this.mobile) {
-        this.detectHover()
-        this.sideContent = {
-          "id": "contact",
-          "content": this.media.contact
-        }
-      } else {
-        this.detectClick()
-      }
+      this.checkFormat()
+
+      this.debounceResize()
       this.addThumbnails()
     }
   },
@@ -344,7 +367,7 @@ export default {
   border-radius: 100%;
 }
 
-.mobileSide{
+.mobileSide {
 
   overflow: hidden;
   background: black;
@@ -356,6 +379,7 @@ export default {
   color: white;
   padding: 10px;
 }
+
 .mobileSideContentOuter {
   overflow: hidden;
   position: absolute;
@@ -371,29 +395,36 @@ export default {
   margin: 10px;
   transform: scaleX(1.2);
   line-height: 1;
-      font-size: 25px;
-      font-weight: 800;
+  font-size: 25px;
+  font-weight: 800;
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
 
 
 
-.mobileSide .desc{
+.mobileSide .desc {
   position: absolute;
   margin-bottom: 10px;
   bottom: 0;
   line-height: 1;
-      font-size: 15px;
+  font-size: 15px;
 }
+
 .sideContentMobile {
   position: absolute;
   top: 0;
@@ -416,7 +447,7 @@ export default {
   max-width: 100%;
 }
 
-.sideContentMobile a{
+.sideContentMobile a {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid white;
@@ -499,26 +530,28 @@ export default {
 
 @media screen and (max-width: 1024px) {
 
-footer, header{
-  background: black;
-  color: white;
-  line-height: 1.1;
-  padding: 30px;
-  margin-top: -30px;
-  margin-left: -30px;
-  margin-right: -30px;
-  margin-bottom: -30px;
+  footer,
+  header {
+    background: black;
+    color: white;
+    line-height: 1.1;
+    padding: 30px;
+    margin-top: -30px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: -30px;
 
-}
-.hideMobile{
- display: none;
-}
+  }
+  .hideMobile {
+    display: none;
+  }
 }
 
 
 @media screen and (min-width: 1024px) {
-  footer, header{
-   display: none;
+  footer,
+  header {
+    display: none;
   }
 }
 </style>
