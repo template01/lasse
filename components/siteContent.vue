@@ -1,6 +1,14 @@
 <template>
 <section :class="loading?'loading':''" class="siteContent container">
   <div class="mainContent">
+    <header v-if="mobile" class="">
+      <div v-if="loading" class="loadlogo" style=""></div>
+
+      <img v-else style="margin:0 auto; display:block; max-width:300px" width="80%" :src="'/sun.svg'" />
+      <p style="text-align: ;margin-top:40px">
+        <span>Hello Sunshine,</span>
+      </p>
+    </header>
     <div class="mainContentInner" v-html="mainContent">
     </div>
   </div>
@@ -54,8 +62,8 @@
   <transition name="fade">
     <div v-if="mobile && mobileSideOpen" class="mobileSide">
       <div class="mobileSideContentOuter">
-        <div class="mobileSideContentOuterClose">
-          <div @click="mobileSideOpen = false">X</div>
+        <div class="mobileSideContentOuterClose noselect">
+          <div @click="mobileSideOpen = false">✗</div>
         </div>
         <div class="sideContentMobile">
           <div v-if="slideInSidebar">
@@ -324,9 +332,9 @@ export default {
 @media screen and (max-width: 1024px) {
 
   .mainContentInner span[data-target] img {
-    height: 50px;
-    margin-left: 6px;
-    margin-bottom: -19px;
+    height: 45px;
+    margin-left: 4px;
+    margin-bottom: -15px;
   }
 
 }
@@ -363,7 +371,20 @@ export default {
   margin: 10px;
   transform: scaleX(1.2);
   line-height: 1;
+      font-size: 25px;
+      font-weight: 800;
 }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 
 
 .mobileSide .desc{
@@ -371,6 +392,7 @@ export default {
   margin-bottom: 10px;
   bottom: 0;
   line-height: 1;
+      font-size: 15px;
 }
 .sideContentMobile {
   position: absolute;
@@ -467,5 +489,34 @@ export default {
 .sideContent img {
   width: 100%;
   max-width: 900px;
+}
+
+@media screen and (max-width: 1024px) {
+
+footer, header{
+  background: black;
+  color: white;
+  line-height: 1.1;
+  padding: 30px;
+  margin-top: -30px;
+  margin-left: -30px;
+  margin-right: -30px;
+  margin-bottom: -30px;
+
+}
+
+.hideMobile{
+ display: none;
+}
+
+}
+
+
+@media screen and (min-width: 1024px) {
+  footer, header{
+   display: none;
+  }
+
+
 }
 </style>

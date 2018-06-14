@@ -1,8 +1,42 @@
-/* *{
-  display: none;
-} */
-.loading .mainContentInner p {
 
+@media screen and (max-width: 1024px) {
+
+  footer,
+  header {
+    background: black;
+    color: white;
+    line-height: 1.1;
+    padding: 30px;
+    margin-top: -30px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: -30px;
+
+  }
+  .hideMobile {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  footer,
+  header {
+    display: none;
+  }
+}
+
+.loading header span {
+  background: white;
+  border-radius: 4px;
+  -webkit-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -moz-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -0-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  animation: sliderHoverOpacityDark 750ms infinite alternate;
+  */ opacity: 0.9
+}
+
+.loading .mainContentInner p {
   /* display: inline; */
   -webkit-animation: sliderHoverOpacityDark 750ms infinite alternate;
   -moz-animation: sliderHoverOpacityDark 750ms infinite alternate;
@@ -12,7 +46,6 @@
 }
 
 .loading .sideContentOuter p span {
-
   /* display: inline; */
   -webkit-animation: sliderHoverOpacityDark 750ms infinite alternate;
   -moz-animation: sliderHoverOpacityDark 750ms infinite alternate;
@@ -21,10 +54,8 @@
   */ opacity: 0.9
 }
 
-
-
 .loading .mainContentInner p {
-/* p { */
+  /* p { */
   display: inline;
   background: black;
   border-radius: 4px;
@@ -46,16 +77,26 @@
 }
 
 
-  .loading .sideContentOuter p span  {
-    background: white;
-    border-radius: 4px;
+@media screen and (max-width: 1024px) {
+  .loading .loadlogo {
+    width: 60vw;
+    height: 60vw;
+    max-width: 300px;
+    max-height: 300px;
   }
+}
 
-  @media screen and (max-width: 1024px) {
-      .loading .sideContentOuter   {
-        display: none;
-      }
+
+.loading .sideContentOuter p span {
+  background: white;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+  .loading .sideContentOuter {
+    display: none;
   }
+}
 
 @-webkit-keyframes sliderHoverOpacityDark {
   from {

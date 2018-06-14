@@ -1,4 +1,4 @@
-Hi,
+<span class="hideMobile">Hi,</span>
 I’m <span data-target="lasse">Lasse</span>. I love building stuff. Online and offline. I’m a trained graphic designer, self-taught web-developer and I grew up on a <span data-target="farm">farm</span>.
 
 I’ve worked for clients such as <span data-target="connectit">Vrije Universiteit Amsterdam</span>, Willem De Kooning Academy, <span data-target="editthispost">Domein voor Kunstkritiek</span>, <span data-target="pop">Het Nieuwe Instituut</span> and <span data-target="sander">others</span>.
@@ -46,5 +46,6 @@ Work experience:
 * 2015 - : Partner and Technical Lead at Template Studio in Rotterdam.
 
 </div>
-
+<footer>
 Opportunities? Freelance? Work? Sure. Write me at <a href='mailto:hi@lasses.link' target='_top'>hi@lasses.link</a>!
+</footer>
