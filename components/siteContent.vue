@@ -1,29 +1,30 @@
 <template>
-  <section :class="loading?'loading':''"  class="siteContent container">
-    <div class="mainContent">
-      <div class="mainContentInner" v-html="mainContent">
-      </div>
+<section :class="loading?'loading':''" class="siteContent container">
+  <div class="mainContent">
+    <div class="mainContentInner" v-html="mainContent">
     </div>
+  </div>
+  <div v-if="!mobile" class="desktopSide">
     <div class="sideContentShadow">
       <img @click="setContact" :style="!contactDisplayed ?{ 'transform': 'translateX(-160px)'} :{}" width="60px" :src="'mailblack2.svg'" />
     </div>
-    <div class="sideContentOuter" >
+    <div class="sideContentOuter">
       <div class="sideContent" :style="!contactDisplayed ? { 'justify-content': 'center'} :{}">
         <div v-if="loading">
-            <div>
+          <div>
 
-              <div class="contact">
-                <div class="loadlogo" style=""></div>
+            <div class="contact">
+              <div class="loadlogo" style=""></div>
 
-                <p style="margin-top:40px">
-                  <span>Say Hi back?</span>
-                </p>
-                <div style="margin-top:40px">
-                  <p v-show="media.contact[0].details.phone" v-html="'<span>'+media.contact[0].details.phone+'</span>'"></p>
-                  <p v-show="media.contact[0].details.mail" v-html="'<span>'+media.contact[0].details.mail+'</span>'"></p>
-                </div>
+              <p style="margin-top:40px">
+                <span>Say Hi back?</span>
+              </p>
+              <div style="margin-top:40px">
+                <p v-show="media.contact[0].details.phone" v-html="'<span>'+media.contact[0].details.phone+'</span>'"></p>
+                <p v-show="media.contact[0].details.mail" v-html="'<span>'+media.contact[0].details.mail+'</span>'"></p>
               </div>
             </div>
+          </div>
         </div>
 
         <transition name="fade">
@@ -49,7 +50,28 @@
         </transition>
       </div>
     </div>
-  </section>
+  </div>
+  <transition name="fade">
+    <div v-if="mobile && mobileSideOpen" class="mobileSide">
+      <div class="mobileSideContentOuter">
+        <div class="mobileSideContentOuterClose">
+          <div @click="mobileSideOpen = false">X</div>
+        </div>
+        <div class="sideContentMobile">
+          <div v-if="slideInSidebar">
+            <div v-for="(item,index) in sideContent.content" :key="String(item.id)+index">
+              <div v-if="item.image">
+                <img :src="item.image.src" />
+                <p class="desc" v-show="item.image.desc" v-html="item.image.desc"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+
+</section>
 </template>
 
 <script>
@@ -58,9 +80,8 @@ import mediaData from '../assets/media.json'
 
 
 export default {
-  components: {
-  },
-  props:['loading'],
+  components: {},
+  props: ['loading'],
   // computed: {
   //   postContent() {
   //      // return require(`../../content/posts/${post.id}.md`)
@@ -73,13 +94,13 @@ export default {
       var targerSpans = vm.$el.querySelectorAll('span[data-target]')
       for (var i = 0, len = targerSpans.length; i < len; i++) {
         var value = targerSpans[i].getAttribute("data-target");
-        if(vm.media[value]){
+        if (vm.media[value]) {
           var imgSrc = vm.media[value][0].image.src
           var circle = vm.media[value][0].image.circle
-          if(imgSrc){
-            var DOM_img =  document.createElement("img");
-            if(circle){
-              DOM_img.className="circle"
+          if (imgSrc) {
+            var DOM_img = document.createElement("img");
+            if (circle) {
+              DOM_img.className = "circle"
             }
             DOM_img.src = imgSrc;
             targerSpans[i].appendChild(DOM_img);
@@ -101,6 +122,22 @@ export default {
       }, 300)
 
 
+    },
+    detectClick: function() {
+      var vm = this
+
+      document.addEventListener("click", function(event) {
+        var target = event.target.closest('span[data-target]')
+        if (target) {
+          vm.mobileSideOpen = true
+          var value = target.getAttribute("data-target");
+          vm.sideContent = {
+            "id": value,
+            "content": vm.media[value]
+          }
+        }
+
+      });
     },
     detectHover: function() {
       var vm = this
@@ -138,22 +175,28 @@ export default {
   },
   mounted() {
 
-  // this.$nextTick(() => {
-  //   this.$nuxt.$loading.start()
-  //
-  //   setTimeout(() => this.$nuxt.$loading.finish(), 20000)
-  // })
-  if(!this.loading){
-    this.detectHover()
-    this.sideContent = {
-      "id": "contact",
-      "content": this.media.contact
+    // this.$nextTick(() => {
+    //   this.$nuxt.$loading.start()
+    //
+    //   setTimeout(() => this.$nuxt.$loading.finish(), 20000)
+    // })
+    if (!this.loading) {
+      if (!this.mobile) {
+        this.detectHover()
+        this.sideContent = {
+          "id": "contact",
+          "content": this.media.contact
+        }
+      } else {
+        this.detectClick()
+      }
+      this.addThumbnails()
     }
-    this.addThumbnails()
-  }
   },
   data: function() {
     return {
+      mobile: true,
+      mobileSideOpen: false,
       isHovered: false,
       contactDisplayed: true,
       slideInSidebar: true,
@@ -166,12 +209,12 @@ export default {
 </script>
 
 <style>
-
-.siteContent{
-  position:absolute;
+.siteContent {
+  position: absolute;
   width: 100%;
   top: 0;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity .5s, transform .5s;
@@ -193,11 +236,15 @@ export default {
   padding: 80px;
   padding-left: 100px;
   padding-right: 100px;
+}
 
-  /* background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,255,255,1) 100%);
-background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,255,255,1) 100%);
-background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,255,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); */
+@media screen and (max-width: 1024px) {
+  .mainContent {
+    width: 100%;
+    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .mainContentInner {
@@ -210,6 +257,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .mainContentInner p {
   margin-bottom: 80px;
 }
+
+@media screen and (max-width: 1024px) {
+  .mainContentInner p {
+    margin-bottom: 40px;
+  }
+}
+
+
+
 .mainContentInner .smalltext {
   margin-bottom: 80px;
   font-size: 20px;
@@ -217,11 +273,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   column-gap: 40px;
 }
 
-.smalltext p{
+@media screen and (max-width: 1024px) {
+  .mainContentInner .smalltext {
+    column-count: 1;
+    font-size: 15px;
+
+  }
+}
+
+.smalltext p {
   margin-bottom: 20px;
   margin-top: 20px;
 
 }
+
 
 .mainContentInner a {
   color: inherit;
@@ -229,15 +294,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 
 
-.mainContentInner .smalltext span[data-target]{
+.mainContentInner .smalltext span[data-target] {
   font-weight: 600
 }
 
-.mainContentInner .smalltext span[data-target] img{
+.mainContentInner .smalltext span[data-target] img {
   height: 40px;
   margin-left: 6px;
   margin-bottom: -15px;
 }
+
+
+
 
 .mainContentInner span[data-target] {
   color: black;
@@ -245,15 +313,84 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   cursor: pointer;
 }
 
-.mainContentInner span[data-target] img{
+.mainContentInner span[data-target] img {
   height: 80px;
   margin-left: 6px;
   margin-bottom: -25px;
 }
-.mainContentInner span[data-target] img.circle{
-    border-radius: 100%;
+
+@media screen and (max-width: 1024px) {
+
+  .mainContentInner span[data-target] img {
+    height: 50px;
+    margin-left: 6px;
+    margin-bottom: -19px;
+  }
+
 }
 
+
+.mainContentInner span[data-target] img.circle {
+  border-radius: 100%;
+}
+
+.mobileSide{
+
+  overflow: hidden;
+  background: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  color: white;
+  padding: 10px;
+}
+.mobileSideContentOuter {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.mobileSideContentOuterClose {
+  z-index: 1;
+  position: absolute;
+  margin: 10px;
+  transform: scaleX(1.2);
+  line-height: 1;
+}
+
+
+.mobileSide .desc{
+  position: absolute;
+  margin-bottom: 10px;
+  bottom: 0;
+  line-height: 1;
+}
+.sideContentMobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sideContentMobile img {
+  max-height: 70vh;
+  width: 100%;
+}
 
 .sideContentShadow {
   background: red;
@@ -308,23 +445,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   justify-content: end;
 }
 
-.sideContent .contact a{
+.sideContent .contact a {
   text-decoration: none;
   border: 0 !important;
 }
 
-.sideContent .desc{
+.sideContent .desc {
   color: inherit;
   font-size: 20px;
 }
 
 
-.sideContent a{
+.sideContent a {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid white;
 }
-.sideContent img{
+
+.sideContent img {
   width: 100%;
   max-width: 900px;
 }

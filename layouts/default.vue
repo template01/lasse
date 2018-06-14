@@ -27,6 +27,14 @@ html {
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 1024px){
+  html {
+    font-size: 25px;
+    line-height: 2;
+  }
+}
+
+
 *,
 *:before,
 *:after {

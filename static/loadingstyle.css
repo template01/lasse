@@ -51,38 +51,44 @@
     border-radius: 4px;
   }
 
+  @media screen and (max-width: 1024px) {
+      .loading .sideContentOuter   {
+        display: none;
+      }
+  }
+
 @-webkit-keyframes sliderHoverOpacityDark {
   from {
-    opacity: 0.9;
+    opacity: 0.7;
   }
   to {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 
 @-moz-keyframes sliderHoverOpacityDark {
   from {
-    opacity: 0.9;
+    opacity: 0.7;
   }
   to {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 
 @-o-keyframes sliderHoverOpacityDark {
   from {
-    opacity: 0.9;
+    opacity: 0.7;
   }
   to {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 
 @keyframes sliderHoverOpacityDark {
   from {
-    opacity: 0.9;
+    opacity: 0.7;
   }
   to {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
