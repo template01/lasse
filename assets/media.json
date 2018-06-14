@@ -42,6 +42,12 @@
       "src": "query.png"
     }
   }],
+  "automation": [{
+    "image": {
+      "src": "automatedshop.png",
+      "desc": "Sketch for an automated shopping system, The Netherlands 2018"
+    }
+  }],
   "pop": [{
     "image": {
       "src": "pop.jpg",

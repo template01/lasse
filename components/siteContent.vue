@@ -412,8 +412,14 @@ export default {
 }
 
 .sideContentMobile img {
-  max-height: 70vh;
-  width: 100%;
+  max-height: 90vh;
+  max-width: 100%;
+}
+
+.sideContentMobile a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid white;
 }
 
 .sideContentShadow {
@@ -504,11 +510,9 @@ footer, header{
   margin-bottom: -30px;
 
 }
-
 .hideMobile{
  display: none;
 }
-
 }
 
 
@@ -516,7 +520,5 @@ footer, header{
   footer, header{
    display: none;
   }
-
-
 }
 </style>

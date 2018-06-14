@@ -8,7 +8,7 @@ I’ve worked for clients such as <span data-target="connectit">Vrije Universite
 
 I’m good at imagining and visualizing concepts whether that might be through <span data-target="sketch">sketches, prototypes or models</span>.
 
-Professionally I’ve mainly worked as a webdesigner and developer, but I’m really interested in projects which touch upon product design, webdesign and automation. The transition between <span data-target="lasse">digital and analog</span> really get’s me started.
+Professionally I’ve mainly worked as a webdesigner and developer, but I’m really interested in projects which touch upon product design, webdesign and automation. The transition between <span data-target="automation">digital and analog</span> really get’s me started.
 
 I believe in <span data-target="connected">a connected web</span>. A website not only talks to a visitor but also communicates with your fridge and your smartphone. I therefore also believe in the importance and the rise of flexible Content Management Systems built around <span data-target="query">REST-API/GraphQl</span> or other query languages.
 
