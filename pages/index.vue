@@ -1,149 +1,31 @@
 <template>
-<section class="container">
-  <div class="mainContent">
-    <div class="mainContentInner" v-html="mainContent">
-    </div>
+  <div>
+    <sitecontent  :loading="false"></sitecontent>
+    <sitecontent v-if="loading" :loading="true"></sitecontent>
   </div>
-  <div class="sideContentShadow">
-    <img @click="setContact" :style="!contactDisplayed ?{ 'transform': 'translateX(-160px)'} :{}" width="60px" :src="'mailblack2.svg'" />
-  </div>
-  <div class="sideContentOuter" :style="contactDisplayed ?{ 'justify-content': 'end'} :{}">
-    <div class="sideContent" :style="contactDisplayed ?{ 'justify-content': 'end'} :{}">
-
-      <transition name="fade">
-        <div v-if="slideInSidebar">
-          <div v-for="(item,index) in sideContent.content" :key="String(item.id)+index">
-            <div v-if="item.image">
-              <img :src="item.image.src" />
-              <p class="desc" v-show="item.image.desc" v-html="item.image.desc"></p>
-            </div>
-            <div v-if="item.details">
-              <img style="margin:0 auto; display:block; max-width:300px" width="80%" :src="'/sun.svg'" />
-              <p style="margin-top:40px">
-                Say Hi back?
-              </p>
-              <div style="margin-top:40px">
-
-                <p v-show="item.details.phone" v-html="item.details.phone"></p>
-                <p v-show="item.details.mail" v-html="item.details.mail"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </div>
-  </div>
-</section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import sitecontent from '~/components/siteContent.vue'
 import lasseText from '../assets/lasse.md'
 import mediaData from '../assets/media.json'
 
 
 export default {
   components: {
-    AppLogo
-  },
-  // computed: {
-  //   postContent() {
-  //      // return require(`../../content/posts/${post.id}.md`)
-  //     return require('../assets/README.md')
-  //   },
-  // },
-  methods: {
-    addThumbnails: function() {
-      var vm = this
-      var targerSpans = vm.$el.querySelectorAll('span[data-target]')
-      for (var i = 0, len = targerSpans.length; i < len; i++) {
-        var value = targerSpans[i].getAttribute("data-target");
-        if(vm.media[value]){
-          var imgSrc = vm.media[value][0].image.src
-          var circle = vm.media[value][0].image.circle
-          if(imgSrc){
-            var DOM_img =  document.createElement("img");
-            if(circle){
-              DOM_img.className="circle"
-            }
-            DOM_img.src = imgSrc;
-            targerSpans[i].appendChild(DOM_img);
-          }
-        }
-
-      }
-    },
-    setContact: function() {
-      var vm = this
-      vm.slideInSidebar = false
-      setTimeout(function() {
-        vm.sideContent = {
-          "id": "contact",
-          "content": vm.media.contact
-        }
-        vm.contactDisplayed = true
-        vm.slideInSidebar = true
-      }, 300)
-
-
-    },
-    detectHover: function() {
-      var vm = this
-      document.addEventListener('mouseover', function(event) {
-        var checkEvent = event.target.closest('span[data-target]')
-        if (!checkEvent) {
-          vm.isHovered = false
-        } else {
-          vm.isHovered = true
-        }
-      })
-      document.addEventListener('mouseover', function(event) {
-        var hoverLink = event.target.closest('span[data-target]');
-        if (!hoverLink) return;
-        setTimeout(function() {
-          if (!vm.isHovered) return;
-          var value = hoverLink.getAttribute("data-target");
-          vm.sideContent = {
-            "id": value,
-            "content": vm.media[value]
-          }
-          vm.slideInSidebar = false
-          setTimeout(function() {
-            vm.slideInSidebar = true
-            if (vm.sideContent != 'contact') {
-              vm.contactDisplayed = false
-            } else {
-              vm.contactDisplayed = true
-            }
-          }, 300)
-        }, 500)
-
-      }, false);
-    }
-  },
-  mounted() {
-
-  // this.$nextTick(() => {
-  //   this.$nuxt.$loading.start()
-  //
-  //   setTimeout(() => this.$nuxt.$loading.finish(), 20000)
-  // })
-    this.detectHover()
-    this.sideContent = {
-      "id": "contact",
-      "content": this.media.contact
-    }
-    this.addThumbnails()
+    sitecontent
   },
   data: function() {
     return {
-      isHovered: false,
-      contactDisplayed: true,
-      slideInSidebar: true,
-      media: mediaData,
-      sideContent: '',
-      mainContent: lasseText
+      loading: true
     }
+  },
+  mounted(){
+    var vm = this
+    setTimeout(function(){
+      vm.loading = false
+      // alert(vm.loading)
+    },2000)
   }
 }
 </script>

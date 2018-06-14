@@ -1,0 +1,88 @@
+/* *{
+  display: none;
+} */
+.loading .mainContentInner p {
+
+  /* display: inline; */
+  -webkit-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -moz-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -0-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  animation: sliderHoverOpacityDark 750ms infinite alternate;
+  */ opacity: 0.9
+}
+
+.loading .sideContentOuter p span {
+
+  /* display: inline; */
+  -webkit-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -moz-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -0-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  animation: sliderHoverOpacityDark 750ms infinite alternate;
+  */ opacity: 0.9
+}
+
+
+
+.loading .mainContentInner p {
+/* p { */
+  display: inline;
+  background: black;
+  border-radius: 4px;
+}
+
+.loading .loadlogo {
+  width: 20vw;
+  background: white;
+  border-radius: 100%;
+  height: 20vw;
+  margin: 0px auto;
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  -webkit-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -moz-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  -0-animation: sliderHoverOpacityDark 750ms infinite alternate;
+  animation: sliderHoverOpacityDark 750ms infinite alternate;
+}
+
+
+  .loading .sideContentOuter p span  {
+    background: white;
+    border-radius: 4px;
+  }
+
+@-webkit-keyframes sliderHoverOpacityDark {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@-moz-keyframes sliderHoverOpacityDark {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@-o-keyframes sliderHoverOpacityDark {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes sliderHoverOpacityDark {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

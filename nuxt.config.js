@@ -25,6 +25,11 @@ module.exports = {
     {
       rel:"stylesheet",
       type:"text/css",
+      href:"/loadingstyle.css"
+    },
+    {
+      rel:"stylesheet",
+      type:"text/css",
       href:"/fonts/stylesheet.css"
     }
     ]

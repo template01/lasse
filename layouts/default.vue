@@ -1,9 +1,18 @@
 <template>
-  <div>
-    <nuxt/>
-  </div>
+<div>
+  <nuxt/>
+</div>
 </template>
+<script>
+import initContent from '~/components/initContent.vue'
 
+
+export default {
+  components: {
+    initContent
+  },
+}
+  </script>
 <style>
 html {
   font-family: "Space Text", sans-serif;
@@ -18,7 +27,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }
