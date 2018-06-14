@@ -175,11 +175,13 @@ export default {
   },
   mounted() {
 
-    // this.$nextTick(() => {
-    //   this.$nuxt.$loading.start()
-    //
-    //   setTimeout(() => this.$nuxt.$loading.finish(), 20000)
-    // })
+    //determain mobile
+    if(window.innerWidth>1024){
+      this.mobile=false
+    }else{
+      this.mobile=true
+    }
+
     if (!this.loading) {
       if (!this.mobile) {
         this.detectHover()
