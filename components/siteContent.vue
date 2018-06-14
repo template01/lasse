@@ -12,7 +12,7 @@
         <div v-if="loading">
             <div>
 
-              <div>
+              <div class="contact">
                 <div class="loadlogo" style=""></div>
 
                 <p style="margin-top:40px">
@@ -33,7 +33,7 @@
                 <img :src="item.image.src" />
                 <p class="desc" v-show="item.image.desc" v-html="item.image.desc"></p>
               </div>
-              <div v-if="item.details">
+              <div class="contact" v-if="item.details">
                 <img style="margin:0 auto; display:block; max-width:300px" width="80%" :src="'/sun.svg'" />
                 <p style="margin-top:40px">
                   <span>Say Hi back?</span>
@@ -223,6 +223,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 }
 
+.mainContentInner a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
 .mainContentInner .smalltext span[data-target]{
   font-weight: 600
 }
@@ -300,6 +306,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   /* justify-content: center; */
   flex-direction: column;
   justify-content: end;
+}
+
+.sideContent .contact a{
+  text-decoration: none;
+  border: 0 !important;
 }
 
 .sideContent .desc{

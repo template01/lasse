@@ -56,8 +56,8 @@
   }],
   "contact": [{
     "details": {
-      "phone": "+31 6 5777 2891",
-      "mail": "hi@lasses.link"
+      "phone": "<a href='tel:+31657772891'>+31 6 5777 2891</a>",
+      "mail": "<a href='mailto:hi@lasses.link' target='_top'>hi@lasses.link</a>"
     }
   }]
 }

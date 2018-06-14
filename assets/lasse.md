@@ -31,7 +31,7 @@ Analog Tools (you name it):
 * Laser-cutters
 * Chainsaws
 * Table routers
-* Hammers and nails. <span data-target="lasse">(I’m a pratical guy!)</span>
+* Hammers and nails.
 
 CV:
 
@@ -47,4 +47,4 @@ Work experience:
 
 </div>
 
-Opportunities? Freelance? Work? Sure. Write me at hi@lasses.link
+Opportunities? Freelance? Work? Sure. Write me at <a href='mailto:hi@lasses.link' target='_top'>hi@lasses.link</a>!
