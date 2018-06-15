@@ -103,7 +103,14 @@ export default {
     typeSentence: function() {
       var vm = this
       if(!vm.typeStarted){
-        var typed = new Typed('.contactType', {
+        vm.typedInstance = new Typed('.contactType', {
+          strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
+          typeSpeed: 50,
+          startDelay: 300,
+        });
+      }else{
+        vm.typedInstance.reset()
+        vm.typedInstance = new Typed('.contactType', {
           strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
           typeSpeed: 50,
           startDelay: 300,
@@ -263,7 +270,8 @@ export default {
       media: mediaData,
       sideContent: '',
       mainContent: lasseText,
-      typeStarted: false
+      typeStarted: false,
+      typedInstance:''
     }
   }
 }
