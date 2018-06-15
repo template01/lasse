@@ -25,6 +25,7 @@
               <div class="loadlogo" style=""></div>
 
               <p style="margin-top:40px">
+                <span>. . .</span>
               </p>
               <div style="margin-top:40px">
                 <p v-show="media.contact[0].details.phone" v-html="'<span>'+media.contact[0].details.phone+'</span>'"></p>
@@ -35,7 +36,7 @@
         </div>
 
         <transition name="fade">
-          <div v-if="slideInSidebar">
+          <div v-if="slideInSidebar && !loading">
             <div v-for="(item,index) in sideContent.content" :key="String(item.id)+index">
               <div v-if="item.image">
                 <img :src="item.image.src" />
@@ -102,21 +103,22 @@ export default {
 
     typeSentence: function() {
       var vm = this
-      if(!vm.typeStarted){
-        vm.typedInstance = new Typed('.contactType', {
+      // if(!vm.typeStarted){
+        vm.typedInstance = new Typed(vm.$el.querySelector('.contactType'), {
           strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
           typeSpeed: 50,
           startDelay: 300,
         });
-      }else{
-        vm.typedInstance.reset()
-        vm.typedInstance = new Typed('.contactType', {
-          strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
-          typeSpeed: 50,
-          startDelay: 300,
-        });
-      }
-      vm.typeStarted = true
+        console.log(document.querySelectorAll)
+      // }else{
+      //   vm.typedInstance.reset()
+      //   vm.typedInstance = new Typed('.contactType', {
+      //     strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
+      //     typeSpeed: 50,
+      //     startDelay: 300,
+      //   });
+      // }
+      // vm.typeStarted = true
 
     },
 
@@ -207,9 +209,7 @@ export default {
           "content": this.media.contact
         }
         var vm = this
-        setTimeout(function() {
-          vm.typeSentence()
-        }, 500)
+
 
       } else {
         this.detectClick()
@@ -250,14 +250,17 @@ export default {
     }
   },
   mounted() {
-
     //determain mobile
 
+    console.log(this.loading)
+    this.checkFormat()
     if (!this.loading) {
-      this.checkFormat()
-
       this.debounceResize()
       this.addThumbnails()
+      var vm = this
+      setTimeout(function() {
+        vm.typeSentence()
+      }, 2000)
     }
   },
   data: function() {
