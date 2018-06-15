@@ -25,7 +25,6 @@
               <div class="loadlogo" style=""></div>
 
               <p style="margin-top:40px">
-                <span>Say Hi back?</span>
               </p>
               <div style="margin-top:40px">
                 <p v-show="media.contact[0].details.phone" v-html="'<span>'+media.contact[0].details.phone+'</span>'"></p>
@@ -44,13 +43,16 @@
               </div>
               <div class="contact" v-if="item.details">
                 <img style="margin:0 auto; display:block; max-width:300px" width="80%" :src="'/sun.svg'" />
-                <p style="margin-top:40px">
-                  <span>Say Hi back?</span>
-                </p>
-                <div style="margin-top:40px">
 
-                  <p v-show="item.details.phone" v-html="item.details.phone"></p>
-                  <p v-show="item.details.mail" v-html="item.details.mail"></p>
+                <div style="margin-top:40px;">
+                  <span class="contactType">
+                   . . .
+                  </span>
+                  <div style="margin-top:40px">
+
+                    <p v-show="item.details.phone" v-html="item.details.phone"></p>
+                    <p v-show="item.details.mail" v-html="item.details.mail"></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,7 +87,7 @@
 <script>
 import lasseText from '../assets/lasse.md'
 import mediaData from '../assets/media.json'
-
+import Typed from 'typed.js';
 
 export default {
   components: {},
@@ -97,6 +99,17 @@ export default {
   //   },
   // },
   methods: {
+
+    typeSentence: function() {
+      var vm = this
+      console.log(vm.$el.querySelector('.contactType'))
+      var typed = new Typed('.contactType', {
+        strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
+        typeSpeed: 50,
+        startDelay: 300,
+      });
+
+    },
 
     debounceResize: function() {
       function debounce(func, wait = 100) {
@@ -142,8 +155,13 @@ export default {
           "id": "contact",
           "content": vm.media.contact
         }
+
         vm.contactDisplayed = true
         vm.slideInSidebar = true
+        setTimeout(function() {
+          vm.typeSentence()
+        }, 500)
+
       }, 300)
 
 
@@ -160,11 +178,12 @@ export default {
             "id": value,
             "content": vm.media[value]
           }
+
         }
 
       });
     },
-    checkFormat: function(){
+    checkFormat: function() {
 
       if (window.innerWidth > 1024) {
         this.mobile = false
@@ -177,6 +196,11 @@ export default {
           "id": "contact",
           "content": this.media.contact
         }
+        var vm = this
+        setTimeout(function() {
+          vm.typeSentence()
+        }, 500)
+
       } else {
         this.detectClick()
       }
@@ -549,7 +573,6 @@ export default {
 
 
 @media screen and (min-width: 1024px) {
-  footer,
   header {
     display: none;
   }

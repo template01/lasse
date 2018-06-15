@@ -1,7 +1,7 @@
 <template>
   <div>
-    <sitecontent  :loading="false"></sitecontent>
     <sitecontent v-if="loading" :loading="true"></sitecontent>
+    <sitecontent  :loading="false"></sitecontent>
   </div>
 </template>
 
