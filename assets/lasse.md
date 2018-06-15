@@ -47,5 +47,5 @@ Work experience:
 
 </div>
 <footer>
-Opportunities? Freelance? Work? Sure. Write me at <a href='mailto:hi@lasses.link' target='_top'>hi@lasses.link</a>!
+Opportunities? Freelance? Work? Sure. Write me at <a href='mailto:hi@parkedthis.space' target='_top'>hi@parkedthis.space</a>!
 </footer>

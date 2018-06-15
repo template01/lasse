@@ -3,7 +3,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'lasse',
+    title: 'Welcome to Lasses parked space!',
     meta: [{
         charset: 'utf-8'
       },
@@ -14,7 +14,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt.js project'
+        content: 'Lasse is a freelance designer, programmer and maker. He loves JS and his sewingmachine.'
       }
     ],
     link: [{

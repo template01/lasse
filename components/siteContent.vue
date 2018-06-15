@@ -102,12 +102,14 @@ export default {
 
     typeSentence: function() {
       var vm = this
-      console.log(vm.$el.querySelector('.contactType'))
-      var typed = new Typed('.contactType', {
-        strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
-        typeSpeed: 50,
-        startDelay: 300,
-      });
+      if(!vm.typeStarted){
+        var typed = new Typed('.contactType', {
+          strings: [". . .", "Hello Sunshine,", 'Say Hi Back?'],
+          typeSpeed: 50,
+          startDelay: 300,
+        });
+      }
+      vm.typeStarted = true
 
     },
 
@@ -160,7 +162,8 @@ export default {
         vm.slideInSidebar = true
         setTimeout(function() {
           vm.typeSentence()
-        }, 500)
+        },
+         500)
 
       }, 300)
 
@@ -259,7 +262,8 @@ export default {
       slideInSidebar: true,
       media: mediaData,
       sideContent: '',
-      mainContent: lasseText
+      mainContent: lasseText,
+      typeStarted: false
     }
   }
 }
